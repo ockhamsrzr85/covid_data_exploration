@@ -26,9 +26,9 @@ if __name__ == '__main__':
     for i, txt in enumerate(aggr['location']):
         ax.annotate(txt, (X[i], y[i]))
 
-    model = sm.OLS(y, X)  # Ordinary Least Squares regression
-    results = model.fit()
-    trend = results.predict(X)
+    X_ = sm.add_constant(X)
+    model = sm.OLS(y, X_).fit()  # Ordinary Least Squares regression
+    trend = model.predict(X_)
     ax.plot(X, trend)
 
     plt.gcf().set_size_inches(15, 7)
