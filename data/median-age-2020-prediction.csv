@@ -1,0 +1,242 @@
+location,Code,Year,median_age
+Afghanistan,AFG,2020,18.6
+Africa,,2020,19.799999
+Albania,ALB,2020,38
+Algeria,DZA,2020,29.1
+Angola,AGO,2020,16.799999
+Antigua and Barbuda,ATG,2020,32.099998
+Argentina,ARG,2020,31.9
+Armenia,ARM,2020,35.700001
+Aruba,ABW,2020,41.200001
+Asia,,2020,32.099998
+Australia,AUS,2020,37.900002
+Australia/New Zealand,,2020,37.900002
+Austria,AUT,2020,44.400002
+Azerbaijan,AZE,2020,32.400002
+Bahamas,BHS,2020,34.299999
+Bahrain,BHR,2020,32.400002
+Bangladesh,BGD,2020,27.5
+Barbados,BRB,2020,39.799999
+Belarus,BLR,2020,40.299999
+Belgium,BEL,2020,41.799999
+Belize,BLZ,2020,25
+Benin,BEN,2020,18.799999
+Bhutan,BTN,2020,28.6
+Bolivia,BOL,2020,25.4
+Bosnia and Herzegovina,BIH,2020,42.5
+Botswana,BWA,2020,25.799999
+Brazil,BRA,2020,33.5
+Brunei,BRN,2020,32.400002
+Bulgaria,BGR,2020,44.700001
+Burkina Faso,BFA,2020,17.6
+Burundi,BDI,2020,17.5
+Cambodia,KHM,2020,25.6
+Cameroon,CMR,2020,18.799999
+Canada,CAN,2020,41.400002
+Cape Verde,CPV,2020,25.700001
+Caribbean,,2020,31.9
+Central African Republic,CAF,2020,18.299999
+Central America,,2020,28.299999
+Central Asia,,2020,27.9
+Chad,TCD,2020,16.700001
+Channel Islands,OWID_CIS,2020,44
+Chile,CHL,2020,35.400002
+China,CHN,2020,38.700001
+Colombia,COL,2020,32.200001
+Comoros,COM,2020,20.4
+Congo,COG,2020,19
+Costa Rica,CRI,2020,33.599998
+Cote d'Ivoire,CIV,2020,18.700001
+Croatia,HRV,2020,44
+Cuba,CUB,2020,43.099998
+Curacao,CUW,2020,41.700001
+Cyprus,CYP,2020,37.299999
+Czechia,CZE,2020,43.299999
+Democratic Republic of Congo,COD,2020,17
+Denmark,DNK,2020,42.299999
+Djibouti,DJI,2020,25.4
+Dominican Republic,DOM,2020,27.6
+Eastern Africa,,2020,18.700001
+Eastern Asia,,2020,39.599998
+Eastern Europe,,2020,40.799999
+Ecuador,ECU,2020,28.1
+Egypt,EGY,2020,25.299999
+El Salvador,SLV,2020,27.6
+Equatorial Guinea,GNQ,2020,22.4
+Eritrea,ERI,2020,19.299999
+Estonia,EST,2020,42.700001
+Eswatini,SWZ,2020,21.5
+Ethiopia,ETH,2020,19.799999
+Europe,,2020,42.700001
+Fiji,FJI,2020,28.6
+Finland,FIN,2020,42.799999
+France,FRA,2020,42
+French Guiana,GUF,2020,25.299999
+French Polynesia,PYF,2020,32.700001
+Gabon,GAB,2020,23.1
+Gambia,GMB,2020,17.5
+Georgia,GEO,2020,38.700001
+Germany,DEU,2020,46.599998
+Ghana,GHA,2020,21.1
+Greece,GRC,2020,45.299999
+Grenada,GRD,2020,29.4
+Guadeloupe,GLP,2020,43.400002
+Guam,GUM,2020,31.4
+Guatemala,GTM,2020,22.9
+Guinea,GIN,2020,19
+Guinea-Bissau,GNB,2020,19.4
+Guyana,GUY,2020,26.299999
+Haiti,HTI,2020,24.299999
+High income,,2020,41.5
+Honduras,HND,2020,24.9
+Hong Kong,HKG,2020,44.799999
+Hungary,HUN,2020,43.400002
+Iceland,ISL,2020,37.299999
+India,IND,2020,28.200001
+Indonesia,IDN,2020,29.299999
+Iran,IRN,2020,32.400002
+Iraq,IRQ,2020,20
+Ireland,IRL,2020,38.700001
+Israel,ISR,2020,30.6
+Italy,ITA,2020,47.900002
+Jamaica,JAM,2020,31.4
+Japan,JPN,2020,48.200001
+Jordan,JOR,2020,23.200001
+Kazakhstan,KAZ,2020,30.6
+Kenya,KEN,2020,20
+Kiribati,KIR,2020,23.200001
+Kuwait,KWT,2020,33.700001
+Kyrgyzstan,KGZ,2020,26.299999
+Laos,LAO,2020,24.4
+Latin America & Caribbean,,2020,30.9
+Latvia,LVA,2020,43.900002
+Least developed countries,,2020,20.4
+Lebanon,LBN,2020,31.1
+Lesotho,LSO,2020,22.200001
+Less developed regions,,2020,29.1
+"Less developed regions, excluding China",,2020,26.299999
+"Less developed regions, excluding least developed countries",,2020,30.9
+Liberia,LBR,2020,19.200001
+Libya,LBY,2020,29
+Lithuania,LTU,2020,43.5
+Low income,,2020,18.9
+Lower middle income,,2020,26.4
+Luxembourg,LUX,2020,39.700001
+Macao,MAC,2020,39.200001
+Madagascar,MDG,2020,19.6
+Malawi,MWI,2020,18.1
+Malaysia,MYS,2020,29.9
+Maldives,MDV,2020,30.6
+Mali,MLI,2020,16.4
+Malta,MLT,2020,42.400002
+Martinique,MTQ,2020,45.700001
+Mauritania,MRT,2020,20.299999
+Mauritius,MUS,2020,37.400002
+Mayotte,MYT,2020,20.1
+Melanesia,OWID_MNS,2020,23.200001
+Mexico,MEX,2020,29.299999
+Micronesia (country),FSM,2020,23
+Micronesia (region),,2020,26.9
+Middle Africa,,2020,17.4
+Middle income,,2020,30.700001
+Moldova,MDA,2020,37.599998
+Mongolia,MNG,2020,28.6
+Montenegro,MNE,2020,39.099998
+More developed regions,,2020,42.099998
+Morocco,MAR,2020,29.6
+Mozambique,MOZ,2020,17.700001
+Myanmar,MMR,2020,29.1
+Namibia,NAM,2020,22
+Nepal,NPL,2020,25
+Netherlands,NLD,2020,43.200001
+New Caledonia,NCL,2020,33.400002
+New Zealand,NZL,2020,37.900002
+Nicaragua,NIC,2020,27.299999
+Niger,NER,2020,15.1
+Nigeria,NGA,2020,18.1
+North Korea,PRK,2020,35.299999
+North Macedonia,MKD,2020,39.099998
+Northern Africa,,2020,25.9
+Northern America,,2020,38.599998
+Northern Europe,,2020,41
+Norway,NOR,2020,39.700001
+Oceania,,2020,33.5
+Oman,OMN,2020,30.700001
+Pakistan,PAK,2020,23.5
+Palestine,PSE,2020,20.4
+Panama,PAN,2020,29.700001
+Papua New Guinea,PNG,2020,22.6
+Paraguay,PRY,2020,26.5
+Peru,PER,2020,29.1
+Philippines,PHL,2020,25.200001
+Poland,POL,2020,41.799999
+Polynesia,OWID_PYA,2020,27.1
+Portugal,PRT,2020,46.200001
+Puerto Rico,PRI,2020,38.200001
+Qatar,QAT,2020,31.9
+Reunion,REU,2020,36
+Romania,ROU,2020,43
+Russia,RUS,2020,39.599998
+Rwanda,RWA,2020,20.299999
+Saint Lucia,LCA,2020,34.900002
+Saint Vincent and the Grenadines,VCT,2020,31.799999
+Samoa,WSM,2020,22
+Sao Tome and Principe,STP,2020,18.700001
+Saudi Arabia,SAU,2020,31.9
+Senegal,SEN,2020,18.700001
+Serbia,SRB,2020,41.200001
+Seychelles,SYC,2020,36.200001
+Sierra Leone,SLE,2020,19.1
+Singapore,SGP,2020,42.400002
+Slovakia,SVK,2020,41.200001
+Slovenia,SVN,2020,44.5
+Solomon Islands,SLB,2020,20.799999
+Somalia,SOM,2020,16.799999
+South Africa,ZAF,2020,27.299999
+South America,,2020,32
+South Korea,KOR,2020,43.400002
+South Sudan,SSD,2020,19.200001
+South-Central Asia,,2020,27.6
+South-Eastern Asia,,2020,30
+Southern Africa,,2020,26.700001
+Southern Asia,,2020,27.6
+Southern Europe,,2020,45.900002
+Spain,ESP,2020,45.5
+Sri Lanka,LKA,2020,34.099998
+Sub-Saharan Africa,,2020,18.700001
+Sudan,SDN,2020,19.700001
+Suriname,SUR,2020,29.6
+Sweden,SWE,2020,41
+Switzerland,CHE,2020,43.099998
+Syria,SYR,2020,21.700001
+Taiwan,TWN,2020,42.200001
+Tajikistan,TJK,2020,23.299999
+Tanzania,TZA,2020,17.700001
+Thailand,THA,2020,40.099998
+Timor,TLS,2020,18
+Togo,TGO,2020,19.4
+Tonga,TON,2020,22.299999
+Trinidad and Tobago,TTO,2020,36.200001
+Tunisia,TUN,2020,32.700001
+Turkey,TUR,2020,31.6
+Turkmenistan,TKM,2020,26.9
+Uganda,UGA,2020,16.4
+Ukraine,UKR,2020,41.400002
+United Arab Emirates,ARE,2020,34
+United Kingdom,GBR,2020,40.799999
+United States,USA,2020,38.299999
+United States Virgin Islands,VIR,2020,42.200001
+Upper middle income,,2020,35.599998
+Uruguay,URY,2020,35.599998
+Uzbekistan,UZB,2020,28.200001
+Vanuatu,VUT,2020,23.1
+Venezuela,VEN,2020,29
+Vietnam,VNM,2020,32.599998
+Western Africa,,2020,18.200001
+Western Asia,,2020,27.799999
+Western Europe,,2020,44.200001
+Western Sahara,ESH,2020,28.4
+World,OWID_WRL,2020,30.9
+Yemen,YEM,2020,20.299999
+Zambia,ZMB,2020,17.700001
+Zimbabwe,ZWE,2020,19.6

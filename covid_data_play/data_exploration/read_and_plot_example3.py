@@ -17,7 +17,7 @@ if __name__ == '__main__':
     ]
     # ['Slovakia', 'Czechia', 'Portugal']
 
-    fig, axes = plt.subplots(nrows=5, ncols=len(countries_to_plot))
+    fig, axes = plt.subplots(nrows=6, ncols=len(countries_to_plot))
 
     def plot_smoothed_cfr(c, plot_title, subplot_row, subplot_col):
         data = full_data[full_data['location'] == c]
@@ -50,6 +50,12 @@ if __name__ == '__main__':
         data.plot(x='date', y=['total_boosters_per_hundred'], title=plot_title, ax=axes[subplot_row, subplot_col],
                   ylim=(0, 200))
 
+    def plot_omicron(c, plot_title, subplot_row, subplot_col):
+        data = full_data[full_data['location'] == c]
+        data.plot(x='date', y=['percent_omicron'], title=plot_title,
+                  ax=axes[subplot_row, subplot_col],
+                  ylim=(0, 100))
+
 
     for cntr in countries_to_plot:
         plot_smoothed_cfr(cntr, cntr, 0, countries_to_plot.index(cntr))
@@ -57,6 +63,7 @@ if __name__ == '__main__':
         plot_biweekly_cases(cntr, '', 2, countries_to_plot.index(cntr))
         plot_biweekly_deaths(cntr, '', 3, countries_to_plot.index(cntr))
         plot_total_vax(cntr, '', 4, countries_to_plot.index(cntr))
+        plot_omicron(cntr, '', 5, countries_to_plot.index(cntr))
 
     # plt.show()
     figure = plt.gcf()

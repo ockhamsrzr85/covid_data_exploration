@@ -81,6 +81,22 @@ if __name__ == '__main__':
     full_data = pd.merge(full_data, average_temperature, how='left', on=['location', 'month'])
     full_data = pd.merge(full_data, sunshine_hours, how='left', on=['location', 'month'])
 
+    # Diabetes
+    diabetes_prevalence = read_file('diabetes-prevalence-2019')[['location', 'diabetes_prevalence_per_100_ages_20to79']]
+    full_data = pd.merge(full_data, diabetes_prevalence, how='left', on=['location'])
+
+    # Median Age
+    median_age = read_file('median-age-2020-prediction')[['location', 'median_age']]
+    full_data = pd.merge(full_data, median_age, how='left', on=['location'])
+
+    # omicron %
+    v = read_file('variants')
+    variants = v[v['variant'] == 'B.1.1.529'][['location', 'year_week', 'percent_variant']]
+    variants[['percent_variant']] = \
+        variants[['percent_variant']].fillna(0.0)
+    full_data = pd.merge(full_data, variants, how='left', on=['year_week', 'location'])
+    full_data.rename({'percent_variant': 'percent_omicron'}, axis='columns', inplace=True)
+
     # official Our World In Data CFR
     owd_cfr = read_file('covid-cfr-exemplars')[['date', 'location', 'owd_cfr_over_100_cases_only']]
     full_data = pd.merge(full_data, owd_cfr, how='left', on=['date', 'location'])
