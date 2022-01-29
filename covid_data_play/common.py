@@ -4,7 +4,7 @@ from datetime import datetime
 
 OMICRON_VARIANT_NAME = "B.1.1.529"
 
-OUT_DIR = "../../out"
+OUT_DIR = "../../data_output"
 
 FEATURES_PLK_PATH = f"{OUT_DIR}/features.pkl"
 FEATURES_CSV_PATH = f"{OUT_DIR}/features.csv"
