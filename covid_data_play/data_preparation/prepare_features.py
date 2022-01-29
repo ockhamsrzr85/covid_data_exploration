@@ -32,6 +32,7 @@ if __name__ == '__main__':
 
     full_data['year_week'] = full_data['date'].apply(str_date_to_year_week)
     full_data['month'] = full_data['date'].apply(str_date_to_month)
+    full_data['week_day'] = full_data['date'].apply(week_day)
 
     full_data = pd.merge(full_data, locations, how='left', on=['location'])
     full_data = pd.merge(full_data, preventable_deaths, how='left', on=['location'])
@@ -100,4 +101,7 @@ if __name__ == '__main__':
 
     full_data.to_csv(FEATURES_CSV_PATH)
     full_data.to_pickle(FEATURES_PLK_PATH)
+
+    mondays_only = full_data[full_data['week_day'] == 0]
+    mondays_only.to_csv(f"{OUT_DIR}/features_mondays.csv")
 

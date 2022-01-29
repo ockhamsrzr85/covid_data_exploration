@@ -26,3 +26,8 @@ def str_date_to_year_week(dt):
 def str_date_to_month(dt):
     parsed_date = datetime.strptime(dt, '%Y-%m-%d')
     return parsed_date.month
+
+
+def week_day(dt):
+    parsed_date = datetime.strptime(dt, '%Y-%m-%d')
+    return parsed_date.weekday()
