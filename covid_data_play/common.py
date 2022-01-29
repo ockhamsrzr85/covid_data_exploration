@@ -4,9 +4,13 @@ from datetime import datetime
 
 OMICRON_VARIANT_NAME = "B.1.1.529"
 
+OUT_DIR = "../../out"
+
+FEATURES_PLK_PATH = f"{OUT_DIR}/features.pkl"
+FEATURES_CSV_PATH = f"{OUT_DIR}/features.csv"
 
 def data_file_path(name):
-    return f'../data/{name}.csv'
+    return f'../../data/{name}.csv'
 
 
 def read_file(name):
