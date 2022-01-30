@@ -25,7 +25,8 @@ def run(min_date, max_date):
         ('median_age', 'max'),
         ('prevalence_of_obesity_both_sexes', 'max'),
         ('prevalence_of_overweight_adults_both_sexes', 'max'),
-        ('total_vaccinations_per_hundred', 'sum')
+        ('total_vaccinations_per_hundred', 'sum'),
+        ('pop_over_65_per_100_2019', 'max')
     ]
 
     for c, f in to_check:

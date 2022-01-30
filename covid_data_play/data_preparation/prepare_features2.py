@@ -123,6 +123,10 @@ if __name__ == '__main__':
     strokes = read_file('stroke-death-rates')[['location', 'stroke_deaths_per_100k']]
     full_data = pd.merge(full_data, strokes, how='left', on=['location'])
 
+    # Population ages 65 and above (% of total population)
+    popover65 = read_file('worlda-bank-pop-over-65-percentage')[['location', 'pop_over_65_per_100_2019']]
+    full_data = pd.merge(full_data, popover65, how='left', on=['location'])
+
     # all top causes
     all_top_causes = read_file('probability-of-death-from-any-of-the-top-global-causes-of-death')[['location',
                                                       'prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory_female',

@@ -18,3 +18,7 @@ https://en.wikipedia.org/wiki/List_of_cities_by_sunshine_duration
 https://en.wikipedia.org/wiki/List_of_cities_by_average_temperature
 
 TODO: https://cds.climate.copernicus.eu/
+
+## Population ages 65 and above (% of total population)
+
+https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS
