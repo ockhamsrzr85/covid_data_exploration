@@ -1,4 +1,4 @@
-location,Code,Year,age-standardized-death-rate-cardiovascular-disease
+location,Code,Year,age_standardized_death_rate_cardiovascular
 Japan,JPN,2019,77.009943462191
 High-income Asia Pacific,,2019,79.1122014569989
 Peru,PER,2019,88.6138421601172

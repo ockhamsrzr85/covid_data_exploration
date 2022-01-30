@@ -97,6 +97,30 @@ if __name__ == '__main__':
     full_data = pd.merge(full_data, variants, how='left', on=['year_week', 'location'])
     full_data.rename({'percent_variant': 'percent_omicron'}, axis='columns', inplace=True)
 
+    # age-standardized-death-rate-cardiovascular-disease-annual-per_100k
+    cardiovascular_disease = \
+        read_file('age-standardized-death-rate-cardiovascular-disease-annual-per_100k')[['location', 'age_standardized_death_rate_cardiovascular']]
+    full_data = pd.merge(full_data, cardiovascular_disease, how='left', on=['location'])
+
+    # Demential
+    dementia_death_rates = read_file('dementia-death-rates')[['location', 'dementia_death_rate_per_100k']]
+    full_data = pd.merge(full_data, dementia_death_rates, how='left', on=['location'])
+
+    # mental health & substance use
+    mental = read_file('death-rates-from-mental-health-and-substance-use-disorders')[['location', 'mental_health_and_substance_use_deaths']]
+    full_data = pd.merge(full_data, mental, how='left', on=['location'])
+
+    # strokes
+    strokes = read_file('stroke-death-rates')[['location', 'stroke_deaths_per_100k']]
+    full_data = pd.merge(full_data, strokes, how='left', on=['location'])
+
+    # all top causes
+    all_top_causes = read_file('probability-of-death-from-any-of-the-top-global-causes-of-death')[['location',
+                                                      'prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory_female',
+                                                      'prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory_male',
+                                                      'prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory']]
+    full_data = pd.merge(full_data, all_top_causes, how='left', on=['location'])
+
     # official Our World In Data CFR
     owd_cfr = read_file('covid-cfr-exemplars')[['date', 'location', 'owd_cfr_over_100_cases_only']]
     full_data = pd.merge(full_data, owd_cfr, how='left', on=['date', 'location'])
