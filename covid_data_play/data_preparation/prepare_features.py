@@ -76,7 +76,7 @@ if __name__ == '__main__':
     average_temperature["month"] = pd.to_numeric(average_temperature["month"])
     sunshine_hours["month"] = pd.to_numeric(sunshine_hours["month"])
 
-    full_data = pd.merge(full_data, largest_cities, how='inner', on=['location'])
+    full_data = pd.merge(full_data, largest_cities, how='left', on=['location'])
     full_data = pd.merge(full_data, average_temperature, how='left', on=['location', 'month'])
     full_data = pd.merge(full_data, sunshine_hours, how='left', on=['location', 'month'])
 
