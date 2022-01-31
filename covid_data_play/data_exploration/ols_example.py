@@ -17,7 +17,6 @@ if __name__ == '__main__':
 
     X = aggr['person_days_with_vax_per_100']
     y = aggr['sum_owd_cfr_over_100_cases_only']
-    ax.scatter(X, y)
 
     plt.gca().update(dict(title='Ordinary Least Squares regression: person_days_with_vax_per_100 vs sum_owd_cfr_over_100_cases_only',
                           xlabel='person_days_with_vax_per_100',
