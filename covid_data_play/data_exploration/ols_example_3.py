@@ -1,19 +1,15 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import statsmodels.api as sm
-from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR
+from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR, COUNTRIES_WITH_OECD_AVOIDABLE_DEATHS_STATS
 import os
 
 
 def run(min_date, max_date):
     full_data = pd.read_pickle(FEATURES_PLK_PATH)
 
-    full_data = full_data[(full_data['date'] >= min_date) & (full_data['date'] <= max_date)
-                         # & ~(full_data['location'].isin(['Mexico', 'Finland', 'South Korea']))
-    ]
-
-    full_data['daily_deaths_per_100k_biweekly_avg'] = full_data['biweekly_deaths_per_100k'] / 14.0
-
+    full_data = full_data[(full_data['date'] >= min_date) & (full_data['date'] <= max_date) &
+                          (full_data['location'].isin(COUNTRIES_WITH_OECD_AVOIDABLE_DEATHS_STATS))]
     to_check = [
         ('mental_health_and_substance_use_deaths', 'max'),
         ('prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory', 'max'),

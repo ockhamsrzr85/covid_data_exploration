@@ -2,11 +2,10 @@ from covid_data_play.common import *
 
 if __name__ == '__main__':
     preventable_deaths = read_file('preventable_deaths')
-    # We have preventable and treatable causes mortality data for these countries.
-    # We'll use them to filter the other data sets and focus only on these countries.
-    locations_with_prevent_deaths_data = preventable_deaths['location'].to_list()
 
-    print(locations_with_prevent_deaths_data)
+    locations_to_process = COUNTRIES_WITH_GOOD_ENOUGH_DATA
+
+    print(locations_to_process)
 
     locations = read_file('locations')[['location', 'population']]
     preventable_deaths = pd.read_csv(data_file_path('preventable_deaths'))
@@ -14,12 +13,12 @@ if __name__ == '__main__':
     biweekly_cases = read_file('biweekly_cases')
     biweekly_cases_flattened = biweekly_cases \
         .melt(id_vars=['date'], var_name='location', value_name='biweekly_cases',
-              value_vars=locations_with_prevent_deaths_data)
+              value_vars=locations_to_process)
 
     biweekly_deaths = read_file('biweekly_deaths')
     biweekly_deaths_flattened = biweekly_deaths \
         .melt(id_vars=['date'], var_name='location', value_name='biweekly_deaths',
-              value_vars=locations_with_prevent_deaths_data)
+              value_vars=locations_to_process)
 
     # Full Data (full_data.csv) from https://github.com/owid/covid-19-data/tree/master/public/data
     # (public/data/archived/ecdc and public/data/archived/who) ends on 2020-11-29, no other full data file found.
@@ -27,7 +26,7 @@ if __name__ == '__main__':
     # full_data = read_file('full_data')
     full_data = pd.merge(biweekly_cases_flattened, biweekly_deaths_flattened, how='inner', on=['location', 'date'])
 
-    full_data = full_data[full_data['location'].isin(locations_with_prevent_deaths_data)]
+    full_data = full_data[full_data['location'].isin(locations_to_process)]
     full_data.fillna(value=0.0, inplace=True)
 
     full_data['year_week'] = full_data['date'].apply(str_date_to_year_week)
@@ -49,7 +48,7 @@ if __name__ == '__main__':
     vac_to_concat = []
     vaccinations = read_file("vaccinations")[
         ['location', 'date', 'total_vaccinations_per_hundred', 'total_boosters_per_hundred']]
-    for location in locations_with_prevent_deaths_data:
+    for location in locations_to_process:
         vac_for_loc = vaccinations[vaccinations['location'] == location].loc[:]
         vac_for_loc['total_vaccinations_per_hundred'].interpolate(method='linear', limit_direction='both', inplace=True)
         vac_for_loc['total_boosters_per_hundred'].interpolate(method='linear', limit_direction='both', inplace=True)
@@ -142,6 +141,9 @@ if __name__ == '__main__':
 
     pd.set_option('use_inf_as_na', True)
     full_data['cfr'] = full_data['cfr'].fillna(0)
+
+    full_data['daily_deaths_per_100k_biweekly_avg'] = full_data['biweekly_deaths_per_100k'] / 14.0
+    full_data['daily_cases_per_100k_biweekly_avg'] = full_data['biweekly_cases_per_100k'] / 14.0
 
     full_data.to_csv(FEATURES_CSV_PATH)
     full_data.to_pickle(FEATURES_PLK_PATH)

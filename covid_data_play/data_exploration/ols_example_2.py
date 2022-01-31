@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import statsmodels.api as sm
-from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR
+from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR, COUNTRIES_WITH_OECD_AVOIDABLE_DEATHS_STATS
 import os
 
 if __name__ == '__main__':
     full_data = pd.read_pickle(FEATURES_PLK_PATH)
 
-    # full_data = full_data[full_data['date'] >= '2020-04-01']
+    full_data = full_data[full_data['location'].isin(COUNTRIES_WITH_OECD_AVOIDABLE_DEATHS_STATS)]
 
     aggr = full_data.groupby(['location'], as_index=False).agg(
         person_days_with_vax_per_100=pd.NamedAgg(column="total_vaccinations_per_hundred", aggfunc="sum"),

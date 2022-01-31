@@ -1,18 +1,15 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import statsmodels.api as sm
-from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR
+from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR, COUNTRIES_WITH_GOOD_ENOUGH_DATA
 import os
 
 
 def run(min_date, max_date):
-    full_data = pd.read_pickle(f"{OUT_DIR}/features2.pkl")
+    full_data = pd.read_pickle(FEATURES_PLK_PATH)
 
-    full_data = full_data[(full_data['date'] >= min_date) & (full_data['date'] <= max_date)
-                         # & ~(full_data['location'].isin(['Mexico', 'Finland', 'South Korea']))
-    ]
-
-    full_data['daily_deaths_per_100k_biweekly_avg'] = full_data['biweekly_deaths_per_100k'] / 14.0
+    full_data = full_data[(full_data['date'] >= min_date) & (full_data['date'] <= max_date) &
+                          (full_data['location'].isin(COUNTRIES_WITH_GOOD_ENOUGH_DATA))]
 
     full_data.fillna(0.0, inplace=True)
 
@@ -26,7 +23,8 @@ def run(min_date, max_date):
         ('prevalence_of_obesity_both_sexes', 'max'),
         ('prevalence_of_overweight_adults_both_sexes', 'max'),
         ('total_vaccinations_per_hundred', 'sum'),
-        ('pop_over_65_per_100_2019', 'max')
+        ('pop_over_65_per_100_2019', 'max'),
+        ('daily_cases_per_100k_biweekly_avg', 'sum')
     ]
 
     for c, f in to_check:
