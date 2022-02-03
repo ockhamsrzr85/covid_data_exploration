@@ -5,23 +5,20 @@ import matplotlib.pyplot as plt
 
 from covid_data_play.common import *
 
+from covid_data_play.common import FEATURES_PLK_PATH, OUT_DIR, COUNTRIES_WITH_GOOD_ENOUGH_DATA
+
 if __name__ == '__main__':
     full_data = pd.read_pickle(FEATURES_PLK_PATH)
 
     # full_data = full_data[full_data['date'] >= '2020-04-01']
 
-    countries_to_plot = [
-        'United States', 'United Kingdom',
-        # 'Turkey', 'Switzerland', 'Sweden', 'Spain', 'Slovenia', 'Slovakia', 'Portugal', 'Poland',
-        # 'Norway', 'New Zealand', 'Netherlands', 'Mexico', 'Luxembourg', 'Lithuania', 'Latvia', 'South Korea', 'Japan', 'Italy', 'Israel', 'Ireland', 'Iceland', 'Hungary', 'Greece', 'Germany', 'France', 'Finland', 'Estonia', 'Denmark', 'Czechia', 'Costa Rica', 'Colombia', 'Chile', 'Canada', 'Belgium', 'Austria', 'Australia'
-    ]
-    # ['Slovakia', 'Czechia', 'Portugal']
+    countries_to_plot = COUNTRIES_WITH_GOOD_ENOUGH_DATA
 
-    fig, axes = plt.subplots(nrows=4, ncols=len(countries_to_plot))
+    fig, axes = plt.subplots(nrows=len(countries_to_plot), ncols=4)
 
     def plot_smoothed_cfr(c, plot_title, subplot_row, subplot_col):
         data = full_data[full_data['location'] == c]
-        data['cfr'] = data['cfr'].rolling(20).mean()
+        data['cfr'] = data['owd_cfr_over_100_cases_only']  # data['cfr'].rolling(20).mean()
         data.plot(x='date', y=['cfr'], title=plot_title, ax=axes[subplot_row, subplot_col],
                   ylim=(0, 10))
 
@@ -47,14 +44,20 @@ if __name__ == '__main__':
 
 
     for cntr in countries_to_plot:
-        plot_smoothed_cfr(cntr, cntr, 0, countries_to_plot.index(cntr))
-        plot_biweekly_cases(cntr, '', 1, countries_to_plot.index(cntr))
-        plot_biweekly_deaths(cntr, '', 2, countries_to_plot.index(cntr))
-        plot_total_vax(cntr, '', 3, countries_to_plot.index(cntr))
+        plot_smoothed_cfr(cntr, cntr, countries_to_plot.index(cntr), 0)
+        plot_biweekly_cases(cntr, '', countries_to_plot.index(cntr), 1)
+        plot_biweekly_deaths(cntr, '', countries_to_plot.index(cntr), 2)
+        plot_total_vax(cntr, '', countries_to_plot.index(cntr), 3)
 
     # plt.show()
     figure = plt.gcf()
-    figure.set_size_inches(len(countries_to_plot) * 5, 8)
+    figure.set_size_inches(30, len(countries_to_plot)*4)
+    plt.subplots_adjust(left=0.1,
+                        bottom=0.1,
+                        right=0.9,
+                        top=0.9,
+                        wspace=0.4,
+                        hspace=0.4)
     plt.savefig(f"{OUT_DIR}/{os.path.basename(__file__).replace('.py', '')}.svg")
-    plt.savefig(f"{OUT_DIR}/{os.path.basename(__file__).replace('.py', '')}.pdf")
-    plt.show()
+    plt.savefig(f"{OUT_DIR}/{os.path.basename(__file__).replace('.py', '')}.png")
+    #plt.show()

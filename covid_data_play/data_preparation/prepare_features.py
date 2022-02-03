@@ -117,6 +117,11 @@ if __name__ == '__main__':
     popover65 = read_file('worlda-bank-pop-over-65-percentage')[['location', 'pop_over_65_per_100_2019']]
     full_data = pd.merge(full_data, popover65, how='left', on=['location'])
 
+    # Hypertension
+    hypertension = read_file('hypertension')[['location', 'hypertension_prevalence_men', 'hypertension_prevalence_women']]
+    full_data = pd.merge(full_data, hypertension, how='left', on=['location'])
+    full_data['hypertension_prevalence'] = (full_data['hypertension_prevalence_men'] + full_data['hypertension_prevalence_women']) * 0.5
+
     # all top causes
     all_top_causes = read_file('probability-of-death-from-any-of-the-top-global-causes-of-death')[['location',
                                                       'prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory_female',

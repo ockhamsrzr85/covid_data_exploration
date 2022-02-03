@@ -35,6 +35,9 @@ def run(min_date, max_date):
     columns_to_examine = [
         ColToAgg('mental_health_and_substance_use_deaths', 'max'),
         ColToAgg('prob_of_dying_30_70_from_any_of_cardiovascular_cancer_diabetes_chronic_respiratory', 'max'),
+        ColToAgg('hypertension_prevalence_men', 'max'),
+        ColToAgg('hypertension_prevalence_women', 'max'),
+        ColToAgg('hypertension_prevalence', 'max'),
         ColToAgg('dementia_death_rate_per_100k', 'max'),
         ColToAgg('stroke_deaths_per_100k', 'max'),
         ColToAgg('diabetes_prevalence_per_100_ages_20to79', 'max'),
@@ -70,6 +73,8 @@ def run(min_date, max_date):
 
         axes[sublpot].scatter(X, y, c=colors, cmap='GnBu', s=400)
 
+        #axes[sublpot].hexbin(X, y, gridsize=20)
+
         axes[sublpot].update(dict(title=f"{col_settings.src_column} vs All-time COVID-19 Deaths per 100k",
                                   xlabel=col_settings.agg_col_name(),
                                   ylabel=response_col.agg_col_name()))
@@ -99,9 +104,12 @@ def run(min_date, max_date):
 
     aggr.to_pickle(f"{OUT_DIR}/aggfeatures.pkl")
 
+    aggr.to_csv(f"{OUT_DIR}/aggfeatures.csv")
+
 
 if __name__ == '__main__':
     run('2020-01-01', '2022-01-30')
     #run('2020-01-01', '2021-01-01')
     #run('2021-01-01', '2022-01-30')
+
 
